@@ -10,6 +10,10 @@ still in the writing stage and not yet completed
 2. Java hacks
 3. IDE`s hacks
    + IntelliJ IDEA`s hacks
+4. [Maven](#a-idmaven--4-maven)
+   + [Structure of Maven project](#a-idstructure-structure-of-maven-project)
+   + Maven dependencies manager
+   + Maven phases
 
 
 
@@ -35,3 +39,20 @@ After entering the command, switches to the default editor
 selected in `git config` (local >> global)
 >  + `git commit -m '<some description>'` a commit is immediately 
   created with the entered description without going to the default editor
+
+
+
+
+###  <a id="maven" /> 4. Maven
+
+#### <a id="structure"> Structure of Maven project
+
+[maven project structure screenshot](https://fs-thb01.getcourse.ru/fileservice/file/thumbnail/h/9973be9f91a02d2af69d3c7301ab1447.png/s/f1200x/a/320990/sc/147)
+
+This is the standard structure for a Maven project:
+
++ the src/main/java folder contains java classes;
++ in src/main/resources - resources that our application uses (HTML pages, pictures, style sheets, etc.);
++ src/test - for tests.
+
+Also pay attention to the file called pom.xml. This is the main file for managing Maven. The entire project description is contained here. There is not too much information there yet, but we will add it now.
