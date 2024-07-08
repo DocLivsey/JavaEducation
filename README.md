@@ -13,7 +13,7 @@ still in the writing stage and not yet completed
 4. [Maven](#a-idmaven--4-maven)
    + [Structure of Maven project](#a-idstructure-structure-of-maven-project)
    + [Maven dependencies manager](#a-iddep-manager-maven-dependencies-manager)
-   + Maven phases
+   + [Maven phases](#maven-phases)
 
 
 
@@ -75,3 +75,37 @@ To add a library, write five lines in pom.xml:
 All subsequent dependencies should also be written inside the <dependencies> tag. You might be wondering: how do you know what information you need to include about a library inside the <dependency> tag? Everything is simple here. In such cases, three parameters are always specified: groupId, artifactId and version. You can find out these parameters in two ways:
 1. On the library website. If we need Apache Commons IO, go to the official website and select the Dependency Information tab. All the necessary information is here - you can simply copy it and add it to our dependencies section.
 2. In the Maven repository. Enter “apache commons io” in the search and you will see all available versions of the library.
+
+### Maven phases
+
+The process of building an application is called the life cycle of a Maven project, and it consists of phases. You can look at them in IDEA by clicking on Maven>example>Lifecycle in the upper right corner:
+
+As you can see, there are 9 phases:
+
+>clean - removes all compiled files from the target directory (the place where finished artifacts are saved);
+
+>validate - checking whether all information is available for building the project;
+
+>compile - files with source code are compiled;
+
+>test — tests are launched;
+
+>package - compiled files are packaged (into jar, war, etc. archive);
+
+>verify — checks are performed to confirm the readiness of the packed file;
+
+>install - the package is placed in the local repository. Now it can be used by other projects as an external library;
+
+>site - project documentation is created;
+
+>deploy - the collected archive is copied to a remote repository.
+
+All phases are executed sequentially: you cannot start, say, the fourth phase until phases 1-3 are completed. There are two ways to start a phase:
+
+via command line:
+mvn package
+
+using Intellij IDEA:
+
+Before the package is launched, the validate, compile, and test phases are performed. The exception is the clean phase. It is advisable to call it before each new project build. Phases can be listed separated by spaces:
+mvn clean package.
