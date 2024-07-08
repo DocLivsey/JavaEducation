@@ -38,6 +38,10 @@ public class FunctionsCalculate {
         return x < 5 ? Math.pow(Math.sin(a + x), 3) : Math.log(Math.sqrt(Math.abs(b - x)));
     }
 
+    public static double ninthFunction(double x) {
+        return x >= 2 ? Math.sqrt(1 + x * Math.sqrt(a * x)) : a * Math.sin(b * x) + 3;
+    }
+
     public static void main(String[] args) {
         double x = 5;
         System.out.println(firstFunction(x));
@@ -48,5 +52,6 @@ public class FunctionsCalculate {
         System.out.println(sixthFunction(x));
         System.out.println(seventhFunction(x));
         System.out.println(eighthFunction(x));
+        System.out.println(ninthFunction(x));
     }
 }
