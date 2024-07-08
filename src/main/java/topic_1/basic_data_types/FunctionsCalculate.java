@@ -52,5 +52,6 @@ public class FunctionsCalculate {
         System.out.println(sixthFunction(x));
         System.out.println(seventhFunction(x));
         System.out.println(eighthFunction(x));
+        System.out.println(ninthFunction(x));
     }
 }
