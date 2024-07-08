@@ -12,7 +12,7 @@ still in the writing stage and not yet completed
    + IntelliJ IDEA`s hacks
 4. [Maven](#a-idmaven--4-maven)
    + [Structure of Maven project](#a-idstructure-structure-of-maven-project)
-   + Maven dependencies manager
+   + [Maven dependencies manager](#a-iddep-manager-maven-dependencies-manager)
    + Maven phases
 
 
@@ -56,3 +56,22 @@ This is the standard structure for a Maven project:
 + src/test - for tests.
 
 Also pay attention to the file called pom.xml. This is the main file for managing Maven. The entire project description is contained here. There is not too much information there yet, but we will add it now.
+
+#### <a id="dep-manager"> Maven dependencies manager
+
+You may have come across the phrase “dependency manager” or “dependency manager”. 
+Maven can do it all. Thanks to Maven, you don’t need to spend a lot of time searching for the required library 
+on the Internet, downloading it, and then connecting it to the project: just add the required one to the list 
+of Maven dependencies. Dependencies are written to the dependencies XML node.\
+Let's say you need the Apache Commons IO library in your project for simplified work with files. 
+To add a library, write five lines in pom.xml:
+```xml
+<dependency>
+   <groupId>commons-io</groupId>
+   <artifactId>commons-io</artifactId>
+   <version>2.6</version>
+</dependency>
+```
+All subsequent dependencies should also be written inside the <dependencies> tag. You might be wondering: how do you know what information you need to include about a library inside the <dependency> tag? Everything is simple here. In such cases, three parameters are always specified: groupId, artifactId and version. You can find out these parameters in two ways:
+1. On the library website. If we need Apache Commons IO, go to the official website and select the Dependency Information tab. All the necessary information is here - you can simply copy it and add it to our dependencies section.
+2. In the Maven repository. Enter “apache commons io” in the search and you will see all available versions of the library.
