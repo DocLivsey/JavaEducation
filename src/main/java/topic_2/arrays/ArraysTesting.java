@@ -1,4 +1,4 @@
-package topic_2;
+package topic_2.arrays;
 
 public class ArraysTesting {
     public static void main(String[] args) {
