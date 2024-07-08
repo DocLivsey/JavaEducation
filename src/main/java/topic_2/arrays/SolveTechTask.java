@@ -16,7 +16,8 @@ public class SolveTechTask {
     }
 
     public static int getMinFromArray(int[] array) {
-        Arrays.sort(array);
-        return array[0];
+        var arrayCopy = Arrays.copyOf(array, array.length);
+        Arrays.sort(arrayCopy);
+        return arrayCopy[0];
     }
 }
