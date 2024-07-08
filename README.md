@@ -26,7 +26,10 @@ Next we write the commands:
 **_(untracked | modified | staged | committed)_**
 >+ `git add` to add file/files into git`s "index"
 >  + `git add .` to add all files, equals to `git add --all` 
->  + `git add <file/files>` to add selected file/files
+>  + `git add <file/files>` to add selected file/files. 
+>  Here you can use regular expressions to add according to 
+>  some pattern. For example, `git add *.java` this means that 
+>  you only need to add files with the java extension
 >+ `git commit` to commit changes in selected files. 
 After entering the command, switches to the default editor 
 selected in `git config` (local >> global)
