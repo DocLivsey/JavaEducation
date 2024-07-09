@@ -109,6 +109,7 @@ public class Movie {
                 new Movie("Тёмный рыцарь", 2008, "USA", Genres.FANTASTIC, 10934890),
         };
         System.out.println(Arrays.toString(Movies.rentalCostsAreAboveAverage(movies)));
+        Movies.displayAboutEarliestMovie(movies);
     }
 }
 
@@ -127,5 +128,15 @@ class Movies {
             }
         }
         return areAboveAverage;
+    }
+
+    public static void displayAboutEarliestMovie(Movie[] movies) {
+        Movie earliestMovie = movies[0];
+        for (int i = 1; i < movies.length; i++) {
+            if (movies[i].getYear() < earliestMovie.getYear()) {
+                earliestMovie = movies[i];
+            }
+        }
+        System.out.println(STR."Earliest movie is \{earliestMovie}");
     }
 }
