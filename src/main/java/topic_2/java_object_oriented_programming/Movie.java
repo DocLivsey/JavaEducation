@@ -117,6 +117,8 @@ public class Movie implements Comparable<Movie> {
         Movies.displayAboutEarliestMovie(movies);
         Movies.sortByTitlesInAlphabeticalOrder(movies);
         System.out.println(STR."sorted by year movies \{Arrays.toString(movies)}");
+        Movies.findMovieByNameAndChange(movies, "Побег из Шоушенка", 11387000.0);
+        System.out.println(Arrays.toString(movies));
     }
 }
 
@@ -149,5 +151,64 @@ class Movies {
 
     public static void sortByTitlesInAlphabeticalOrder(Movie[] movies) {
         Arrays.sort(movies);
+    }
+
+    public static Movie findMovieByTitle(Movie[] movies, String title) {
+        for (Movie movie: movies) {
+            if (movie.getTitle().equalsIgnoreCase(title)) {
+                return movie;
+            }
+        }
+        throw new RuntimeException(STR."There is no movie named \{title}");
+    }
+
+    public static void findMovieByNameAndChange(Movie[] movies, String title, String titleToChange) {
+        try {
+            Movie movie = findMovieByTitle(movies, title);
+            movie.setTitle(titleToChange);
+            System.out.println(STR."changed \{movie}");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void findMovieByNameAndChange(Movie[] movies, String title, int yearToChange) {
+        try {
+            Movie movie = findMovieByTitle(movies, title);
+            movie.setYear(yearToChange);
+            System.out.println(STR."changed \{movie}");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void findMovieByNameAndChange(String title, Movie[] movies, String countryToChange) {
+        try {
+            Movie movie = findMovieByTitle(movies, title);
+            movie.setCountry(countryToChange);
+            System.out.println(STR."changed \{movie}");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void findMovieByNameAndChange(Movie[] movies, String title, Movie.Genres genreToChange) {
+        try {
+            Movie movie = findMovieByTitle(movies, title);
+            movie.setGenre(genreToChange);
+            System.out.println(STR."changed \{movie}");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void findMovieByNameAndChange(Movie[] movies, String title, double rentalCostToChange) {
+        try {
+            Movie movie = findMovieByTitle(movies, title);
+            movie.setRentalCost(rentalCostToChange);
+            System.out.println(STR."changed \{movie}");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
