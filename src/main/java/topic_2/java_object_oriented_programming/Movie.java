@@ -1,6 +1,7 @@
 package topic_2.java_object_oriented_programming;
 
 import java.time.Year;
+import java.util.Arrays;
 
 /* Вариант 2
 Разработать класс для хранения информации о фильмах:
@@ -90,11 +91,41 @@ public class Movie {
         }
     }
 
-    public static void main(String[] args) {
+    @Override
+    public String toString() {
+        return STR."\nmovie: " +
+                STR."{title=\{this.title}; " +
+                STR."year=\{this.year}; " +
+                STR."country=\{this.country}; " +
+                STR."genre=\{this.genre.name()}; " +
+                STR."rental_cost=\{this.rentalCost}}\n";
+    }
 
+    public static void main(String[] args) {
+        Movie[] movies = {
+                new Movie("Побег из Шоушенка", 1994, "USA", Genres.ACTION, 7387000),
+                new Movie("Крестный отец", 1972, "Italy", Genres.DETECTIVE, 4561000),
+                new Movie("Криминальное чтиво", 1994, "USA", Genres.COMEDY, 13707301),
+                new Movie("Тёмный рыцарь", 2008, "USA", Genres.FANTASTIC, 10934890),
+        };
+        System.out.println(Arrays.toString(Movies.rentalCostsAreAboveAverage(movies)));
     }
 }
 
 class Movies {
-
+    public static Movie[] rentalCostsAreAboveAverage(Movie[] movies) {
+        Movie[] areAboveAverage = new Movie[movies.length];
+        double average = 0;
+        int length = movies.length;
+        for (Movie movie: movies) {
+            average += movie.getRentalCost();
+        }
+        average /= length;
+        for (int i = 0; i < movies.length; i++) {
+            if (movies[i].getRentalCost() > average) {
+                areAboveAverage[i] = movies[i];
+            }
+        }
+        return areAboveAverage;
+    }
 }
