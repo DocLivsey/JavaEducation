@@ -1,6 +1,8 @@
 package topic_2.java_object_oriented_programming;
 
+import java.time.Year;
 import java.util.Arrays;
+import java.util.Calendar;
 
 /* Вариант 1
 Разработать класс для хранения информации об автомобилях:
@@ -20,10 +22,25 @@ public class Car {
 
     public Car(String model, String regionalNumber, int year, int mileage, double price) {
         this.model = model;
-        this.regionalNumber = regionalNumber;
-        this.year = year;
-        this.mileage = mileage;
-        this.price = price;
+        if (regionalNumber.length() == 8 || regionalNumber.length() == 9) {
+            this.regionalNumber = regionalNumber;
+        } else {
+            System.out.println(STR."Invalid regional number \{regionalNumber}");
+            this.regionalNumber = "undefined";
+        } if (year <= 0 || year > Year.now().getValue()) {
+            System.out.println(STR."Invalid year \{year}");
+            this.year = Year.now().getValue();
+        } else {
+            this.year = year;
+        } if (mileage < 0) {
+            System.out.println(STR."Invalid mileage \{mileage}");
+        } else {
+            this.mileage = mileage;
+        } if (price < 0) {
+            System.out.println(STR."Invalid price \{price}");
+        } else {
+            this.price = price;
+        }
     }
 
     public String getModel() {
@@ -101,13 +118,13 @@ public class Car {
 
     public static void main(String[] args) {
         Car[] cars = {
-                new Car("bmw", "a123b93", 1999, 10000, 98900.90),
-                new Car("mercedes", "F413t32", 1997, 9087, 99090.0),
-                new Car("lexus", "r895K12", 2000, 11390, 87980.79),
+                new Car("bmw", "a123bR93", 1999, 10000, 98900.90),
+                new Car("mercedes", "F413Ct32", 1997, 9087, 99090.0),
+                new Car("lexus", "r895Kw12", 2000, 11390, 87980.79),
         };
         System.out.println(Car.getCheapistCar(cars));
         Car.sortArrayByYear(cars);
         System.out.println(Arrays.toString(cars));
-        System.out.println(Car.findCarByRegisterNumber(cars, "F413t32"));
+        System.out.println(Car.findCarByRegisterNumber(cars, "F413Ct32"));
     }
 }
