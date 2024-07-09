@@ -89,4 +89,12 @@ public class Movie {
             this.rentalCost = rentalCost;
         }
     }
+
+    public static void main(String[] args) {
+
+    }
+}
+
+class Movies {
+
 }
