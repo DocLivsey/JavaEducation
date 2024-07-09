@@ -13,7 +13,7 @@ import java.util.Arrays;
 –	организовать поиск по названию, исправление одного из полей
     и вывод полной информации о фильме после редактирования.
 * */
-public class Movie {
+public class Movie implements Comparable<Movie> {
     public enum Genres {
         COMEDY,
         CARTOON,
@@ -101,6 +101,11 @@ public class Movie {
                 STR."rental_cost=\{this.rentalCost}}\n";
     }
 
+    @Override
+    public int compareTo(Movie anotherMovie) {
+        return Integer.compare(this.getYear(), anotherMovie.getYear());
+    }
+
     public static void main(String[] args) {
         Movie[] movies = {
                 new Movie("Побег из Шоушенка", 1994, "USA", Genres.ACTION, 7387000),
@@ -110,6 +115,8 @@ public class Movie {
         };
         System.out.println(Arrays.toString(Movies.rentalCostsAreAboveAverage(movies)));
         Movies.displayAboutEarliestMovie(movies);
+        Movies.sortByTitlesInAlphabeticalOrder(movies);
+        System.out.println(STR."sorted by year movies \{Arrays.toString(movies)}");
     }
 }
 
@@ -138,5 +145,9 @@ class Movies {
             }
         }
         System.out.println(STR."Earliest movie is \{earliestMovie}");
+    }
+
+    public static void sortByTitlesInAlphabeticalOrder(Movie[] movies) {
+        Arrays.sort(movies);
     }
 }
