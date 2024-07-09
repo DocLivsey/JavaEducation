@@ -7,14 +7,15 @@
 still in the writing stage and not yet completed
 
 1. [Git Commands](#a-idgit-commands--1-git-commands)
-2. Java hacks
+2. [Java hacks](#2-java-hacks)
+   + [Java built-in exceptions](#java-built-in-exceptions)
+   + [Your own exceptions](#your-own-exceptions)
 3. IDE`s hacks
    + IntelliJ IDEA`s hacks
 4. [Maven](#a-idmaven--4-maven)
    + [Structure of Maven project](#a-idstructure-structure-of-maven-project)
    + [Maven dependencies manager](#a-iddep-manager-maven-dependencies-manager)
    + [Maven phases](#maven-phases)
-
 
 
 ### <a id="git-commands" /> 1. Git Commands
@@ -41,6 +42,72 @@ selected in `git config` (local >> global)
   created with the entered description without going to the default editor
 
 
+### 2. Java hacks
+
+#### Java built-in exceptions
+
+Standard exceptions described in JAVA.
++ ArithmeticException - arithmetic error, for example, division by zero
++ ArrayIndexOutOfBoundsException - index goes beyond the array boundary
++ ArrayStoreException - assigning an object of an incompatible type to an array element
++ ClassCastException - invalid cast
++ EnumConstantNotPresentException - an attempt to use an undefined enumeration value
++ IllegalArgumentException - invalid argument when calling a method
++ IllegalMonitorStateException - invalid monitoring operation
++ IllegalStateException - incorrect application state
++ IllegalThreadStateException - the requested operation is incompatible with the current thread
++ IndexOutofBoundsException - the index type is out of acceptable limits
++ NegativeArraySizeException - an array of negative size was created
++ NullPointerException - incorrect use of a null reference
++ NumberFormatException - invalid conversion of string to number format
++ SecurityException - attempt to violate security
++ StringIndexOutOfBounds - attempt to use an index outside the string
++ TypeNotPresentException - type not found
++ UnsupportedOperationException - an unsupported operation was detected
++ A list of checked system exceptions that can be included in the throws list.
++ ClassNotFoundException - class not found
++ CloneNotSupportedException - an attempt to clone an object that does not implement the Cloneable interface
++ IllegalAccessException - access to the class is denied
++ InstantiationException - an attempt to create an object of an abstract class or interface
++ InterruptedException - the thread was interrupted by another thread
++ NoSuchFieldException - the requested field does not exist
++ NoSuchMethodException - the requested method does not exist
++ ReflectiveOperationException - exception associated with reflection
+
+#### Your own exceptions
+
+The system cannot provide for all exceptions; sometimes you will have to create your own exception type for your application. You need to inherit from Exception (let me remind you that this class inherits from Throwable) and override the necessary methods of the Throwable class. Or you can inherit from an already existing type that is closest in logic to your exception. Also, when choosing a parent class, you must understand what type of exception you want to generate, whether checked or not; if you need to create an unchecked exception, you must select RuntimeException as the ancestor
+
++ final void addSuppressed(Throwable exception) - adds an exception to the list of suppressed exceptions (JDK 7)
++ Throwable fillInStackTrace() - Returns a Throwable object containing the complete stack trace.
++ Throwable getCause() - returns the exception underlying the current exception or null
++ String getLocalizedMessage() - returns the localized description of the exception
++ String getMessage() - returns a description of the exception
++ StackTraceElement[] getStackTrace() - returns an array containing the stack and state traces from elements of the StackTraceElement class
++ final Throwable[] getSuppressed() - gets suppressed exceptions (JDK 7)
++ Throwable initCause(Throwable exception) - associates the exception with the causing exception. Returns a reference to the exception.
++ void printStackTrace() - displays the stack trace
++ void printStackTrace(PrintStream stream) - sends a stack trace to the specified stream
++ void setStackTrace(StackTraceElement elements[]) - sets the stack trace for elements (for specialized applications)
++ String toString() - returns a String class object containing a description of the exception.
+
+The easiest way is to create a class with a default constructor. But there are also constructors:
+
+>`Exception(String message)` - Allows you to specify a message
+
+>`Exception(Throwable cause)` - Allows you to specify the root cause
+
+>`Exception(String message, Throwable cause)` - Allows you to specify the message and root cause
+
+>`Exception(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace)` - Allows you to 
+> specify the message, root cause, suppression capability, and write stacktrace flag.
+
+Let’s look at the latter in a little more detail; recording a stack trace is a labor-intensive task, 
+and if the developer generates his own exception, then he may not need to disable the stack trace output. 
+You should also know that the JVM can optimize by removing the stacktrace output for errors that are often generated, 
+to prevent this from happening, you must specify the flag -XX:-OmitStackTraceInFastThrow implementation in 
+native code https://hg.openjdk.java.net/jdk/jdk /file/tip/src/hotspot/share/opto/graphKit.cpp, 
+the stacktrace stops being displayed after PerMethodTrapLimit (default value 100).
 
 
 ###  <a id="maven" /> 4. Maven
