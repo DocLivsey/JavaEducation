@@ -2,7 +2,6 @@ package topic_2.java_object_oriented_programming;
 
 import java.time.Year;
 import java.util.Arrays;
-import java.util.Calendar;
 
 /* Вариант 1
 Разработать класс для хранения информации об автомобилях:
