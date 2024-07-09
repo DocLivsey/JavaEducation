@@ -13,6 +13,32 @@
         <maven.compiler.target>20</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <!--
+        EasyRandom . EasyRandom — это простая в использовании библиотека, которая практически не требует настройки и,
+        просто обходя тип класса, создает для нас экземпляры целых графов объектов.
+
+        Два самых важных класса в библиотеке:
+        EasyRandom , который будет генерировать объекты, и
+        EasyRandomParameters , позволяющий нам настраивать процесс генерации и делать его более предсказуемым.
+
+        <code>
+            EasyRandom generator = new EasyRandom();
+            Person person = generator.nextObject(Person.class);
+
+            assertNotNull(person.getAge());
+            assertNotNull(person.getFirstName());
+            assertNotNull(person.getLastName());
+        </code>
+        -->
+        <dependency>
+            <groupId>org.jeasy</groupId>
+            <artifactId>easy-random-core</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
