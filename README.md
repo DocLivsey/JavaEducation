@@ -107,5 +107,5 @@ mvn package
 
 using Intellij IDEA:
 
-Before the package is launched, the validate, compile, and test phases are performed. The exception is the clean phase. It is advisable to call it before each new project build. Phases can be listed separated by spaces:
+Before the package is launched, the validate, compile, and test phases are performed. The exception is the clean phase. It is advisable to call it before each new project build. Phases can be listed separated by spaces:\
 mvn clean package.
