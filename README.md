@@ -16,6 +16,8 @@ still in the writing stage and not yet completed
    + [Structure of Maven project](#a-idstructure-structure-of-maven-project)
    + [Maven dependencies manager](#a-iddep-manager-maven-dependencies-manager)
    + [Maven phases](#maven-phases)
+5. [Spring and etc](#5-spring-and-etc)
+   + [Spring Core](#spring-core)
 
 
 ### <a id="git-commands" /> 1. Git Commands
@@ -176,3 +178,19 @@ using Intellij IDEA:
 
 Before the package is launched, the validate, compile, and test phases are performed. The exception is the clean phase. It is advisable to call it before each new project build. Phases can be listed separated by spaces:\
 mvn clean package.
+
+
+### 5. Spring and etc
+
+#### Spring Core
+
+Spring consists of several core technologies:
+
++ **IOC container**
+
+Inversion of control (IOC) is a software design principle in which control over the creation and life cycle of objects passes from the developer to the container. This means that instead of explicitly creating objects in code, we define the configuration of objects in the IoC container, which then creates and manages those objects.
+  Spring uses the expression Dependency Injection, which is a special form of IOC whereby an object in a container is itself a dependency, and the fields (external dependencies) it requires to operate are set on the object instance after it is created or returned from the factory. method (not by us, but by the IOC container itself).
+
+To get to know the IOC container in more detail, you can try running your own container. Generate a basic project https://start.spring.io/ Java, Maven, specify Spring WEB in the dependencies. Then download the project to your computer.
+
+The project's launch point will be the DemoApplication class, on which you will see the @SpringBootApplication annotation. Try running your project and thereby raising the context.
