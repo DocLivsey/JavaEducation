@@ -13,6 +13,6 @@ public class UserDto {
 
     private String fullName;
 
-    private long birthDate;
+    private Long birthDate;
 
 }
