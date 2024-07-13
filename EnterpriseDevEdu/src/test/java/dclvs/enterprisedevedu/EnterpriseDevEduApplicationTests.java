@@ -1,10 +1,10 @@
-package dclvs.devedu;
+package dclvs.enterprisedevedu;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DevEduApplicationTests {
+class EnterpriseDevEduApplicationTests {
 
     @Test
     void contextLoads() {

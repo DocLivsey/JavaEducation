@@ -1,13 +1,13 @@
-package dclvs.devedu;
+package dclvs.enterprisedevedu;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DevEduApplication {
+public class EnterpriseDevEduApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DevEduApplication.class, args);
+        SpringApplication.run(EnterpriseDevEduApplication.class, args);
     }
 
 }
