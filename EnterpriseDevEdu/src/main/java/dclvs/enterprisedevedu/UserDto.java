@@ -8,6 +8,11 @@ import java.util.UUID;
 @Data
 @Accessors(chain = true)
 public class UserDto {
+
     private UUID id;
+
     private String fullName;
+
+    private long birthDate;
+
 }
