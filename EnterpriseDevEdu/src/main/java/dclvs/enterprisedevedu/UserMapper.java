@@ -9,7 +9,7 @@ import java.time.temporal.ChronoUnit;
 @Mapper
 public interface UserMapper {
 
-    @Mapping(target = "birthDate", ignore = true)
+    @Mapping(target = "birthDate", constant = "2024-01-15")
     User toEntity(UserDto dto);
 
     UserDto toDto(User entity);
