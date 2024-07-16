@@ -13,6 +13,8 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class UserService {
 
+    private static final long MIN_AGE_IN_DAYS = 0;
+
     private final UserMapper userMapper;
 
     /*@Scheduled(cron = "* * * * * ?")
@@ -27,6 +29,10 @@ public class UserService {
     }*/
 
     public void convertAndLog(UserDto userDto) {
+        if (userDto.getBirthDate() < MIN_AGE_IN_DAYS) {
+            throw new UnprocessableEntityException("Age must be 5 or greater");
+        }
+
         log.info("UserDto = {}", userMapper.toEntity(userDto));
     }
 }
