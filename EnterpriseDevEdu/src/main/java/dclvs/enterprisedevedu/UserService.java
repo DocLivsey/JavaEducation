@@ -15,17 +15,6 @@ public class UserService {
 
     private final UserMapper userMapper;
 
-    @Scheduled(cron = "* * * * * ?")
-    public void runTask() {
-        var user = new User()
-                .setId(UUID.randomUUID())
-                .setFullName("Vova")
-                .setBirthDate(LocalDate.now().minusDays(5));
-
-        log.info("User = {}", user);
-        log.info("UserDto = {}", userMapper.toDto(user));
-    }
-
     public void convertAndLog(UserDto userDto) {
         log.info("UserDto = {}", userMapper.toEntity(userDto));
     }
