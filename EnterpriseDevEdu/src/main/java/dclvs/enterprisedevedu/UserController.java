@@ -15,7 +15,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/user/log")
-    public ResponseEntity<User> convertAndLogUser(@RequestBody UserDto user) {
+    public ResponseEntity<Void> convertAndLogUser(@RequestBody UserDto user) {
         userService.convertAndLog(user);
         return ResponseEntity.ok().build();
     }
