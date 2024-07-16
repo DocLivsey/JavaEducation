@@ -14,10 +14,10 @@ public class UserDto {
     @Schema(name = "ID", description = "Идентификатор")
     private UUID id;
 
-    @Schema(description = "ФИО пользователя")
+    @Schema(description = "ФИО пользователя", example = "Ivanov Ivan Jovanovich")
     private String fullName;
 
-    @Schema(description = "Кол-во дней, прошедших со дня рождения")
+    @Schema(description = "Кол-во дней, прошедших со дня рождения", minimum = "0")
     private Long birthDate;
 
 }
