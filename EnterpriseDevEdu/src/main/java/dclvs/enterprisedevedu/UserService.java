@@ -15,5 +15,7 @@ public class UserService {
 
     private final UserMapper userMapper;
 
-    
+    public void convertAndLog(UserDto userDto) {
+        log.info("UserDto = {}", userMapper.toEntity(userDto));
+    }
 }
