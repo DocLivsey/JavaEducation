@@ -1,5 +1,6 @@
 package dclvs.enterprisedevedu;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/user/log")
+    @Operation(summary = "Логгирование пользователя", description = "Перед логгированием выполняет конвертацию в сущность User")
     public ResponseEntity<Void> convertAndLogUser(@RequestBody UserDto user) {
         userService.convertAndLog(user);
         return ResponseEntity.ok().build();
