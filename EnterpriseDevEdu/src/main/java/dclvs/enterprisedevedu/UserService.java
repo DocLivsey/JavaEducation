@@ -15,13 +15,5 @@ public class UserService {
 
     private final UserMapper userMapper;
 
-    @Scheduled(cron = "* * * * * ?")
-    public void scheduledTask() {
-        User user = new User()
-                .setId(UUID.randomUUID())
-                .setFullName("Anton")
-                .setBirthDate(LocalDate.now().minusYears(12));
-        log.info("User = {}", user);
-        log.info("UserDto = {}", userMapper.toDto(user));
-    }
+    
 }
