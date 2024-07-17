@@ -22,7 +22,7 @@ public class UserController {
     @Operation(summary = "Логгирование пользователя", description = "Перед логгированием выполняет конвертацию в сущность User")
     @ApiResponse(responseCode = "200", description = "Логгирование прошло успешно")
     @ApiResponse(responseCode = "422", description = "Возраст пользователя слишком мал")
-    public ResponseEntity<Void> convertAndLogUser(@RequestBody UserDto user) {
+    public ResponseEntity<UserDto> convertAndLogUser(@RequestBody UserDto user) {
         log.info("get user = {}", user);
         userService.convertAndLog(user);
         return ResponseEntity.ok().build();
