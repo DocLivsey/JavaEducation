@@ -30,10 +30,12 @@ public class UserService {
     }*/
 
     public void convertAndLog(UserDto userDto) {
-        /*Optional<Long> date = Optional.of(userDto.getBirthDate());
-        if (date.orElseGet() < MIN_AGE_IN_DAYS) {
+        if (userDto.getBirthDate() == null) {
+            throw new UnprocessableEntityException("birthDate is null");
+        }
+        if (userDto.getBirthDate() < MIN_AGE_IN_DAYS) {
             throw new UnprocessableEntityException("Age must be 5 or greater");
-        }*/
+        }
 
         log.info("UserDto = {}", userMapper.toEntity(userDto));
     }
