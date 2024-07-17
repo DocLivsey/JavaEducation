@@ -30,4 +30,10 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
+    @PostMapping("/user/convert/with-birth-data")
+    @Operation(summary = "Смаппить пользователя с полной датой")
+    public ResponseEntity<UserWithBirthDataDto> convertUserToUserWithBirthData(@RequestBody UserDto user) {
+        return ResponseEntity.ok(userService.convertToWithBirthData(user));
+    }
+
 }

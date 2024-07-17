@@ -39,4 +39,10 @@ public class UserService {
 
         log.info("UserDto = {}", userMapper.toEntity(userDto));
     }
+
+    public UserWithBirthDataDto convertToWithBirthData(UserDto userDto) {
+        var userEntity = userMapper.toEntity(userDto);
+        return userMapper.toWithBirthDataDto(userEntity);
+    }
+
 }

@@ -6,7 +6,9 @@ import org.mapstruct.Mapping;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-@Mapper
+@Mapper(imports = {
+        LocalDate.class
+})
 public interface UserMapper {
 
     @Mapping(target = "birthDate", constant = "2024-01-15")
@@ -21,5 +23,8 @@ public interface UserMapper {
 
         return date.until(LocalDate.now(), ChronoUnit.DAYS);
     }
+
+    @Mapping(target = "birthData", source = "birthDate")
+    UserWithBirthDataDto toWithBirthDataDto(User entity);
 
 }
