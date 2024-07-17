@@ -11,7 +11,7 @@ import java.time.temporal.ChronoUnit;
 })
 public interface UserMapper {
 
-    @Mapping(target = "birthDate", constant = "2024-01-15")
+    @Mapping(target = "birthDate", expression = "java(LocalDate.now())")
     User toEntity(UserDto dto);
 
     UserDto toDto(User entity);
