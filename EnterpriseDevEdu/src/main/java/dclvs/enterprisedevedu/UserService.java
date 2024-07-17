@@ -6,6 +6,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.Optional;
 import java.util.UUID;
 
 @Slf4j
@@ -29,9 +30,10 @@ public class UserService {
     }*/
 
     public void convertAndLog(UserDto userDto) {
-        if (userDto.getBirthDate() < MIN_AGE_IN_DAYS) {
+        /*Optional<Long> date = Optional.of(userDto.getBirthDate());
+        if (date.orElseGet() < MIN_AGE_IN_DAYS) {
             throw new UnprocessableEntityException("Age must be 5 or greater");
-        }
+        }*/
 
         log.info("UserDto = {}", userMapper.toEntity(userDto));
     }
