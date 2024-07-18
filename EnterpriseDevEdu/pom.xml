@@ -28,7 +28,12 @@
     </scm>
     <properties>
         <java.version>22</java.version>
+
         <spring.version>3.3.1</spring.version>
+        <spring.security.core.version>6.3.1</spring.security.core.version>
+        <spring.security.config.version>6.3.1</spring.security.config.version>
+        <spring.security.web.version>6.3.1</spring.security.web.version>
+
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <lombok.version>1.18.30</lombok.version>
     </properties>
@@ -53,7 +58,19 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
-            <version>6.3.1</version>
+            <version>${spring.security.core.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.security.config.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.security.web.version}</version>
         </dependency>
 
         <dependency>
