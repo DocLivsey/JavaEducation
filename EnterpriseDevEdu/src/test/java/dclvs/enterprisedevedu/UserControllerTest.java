@@ -19,8 +19,7 @@ public class UserControllerTest extends MvcIntegrationTest {
     private UserMapper userMapper;
 
     @Test
-    @SneakyThrows
-    void testConvertUserToUserWithBirthDataReturnCorrectResponse() {
+    void testConvertUserToUserWithBirthDataReturnCorrectResponse() throws Exception {
         // Given
         Mockito.when(userMapper.toEntity(Mockito.any())).thenReturn(buildTestUser());
 
