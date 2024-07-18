@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -24,7 +25,7 @@ public class WebSecurityConfig {
                         .loginPage("/login") // Указывает страницу входа
                         .permitAll() // Разрешает доступ к форме входа для всех пользователей
                 )
-                .logout((logout) -> logout.permitAll()); // Разрешает всем пользователям выходить из системы
+                .logout(LogoutConfigurer::permitAll); // Разрешает всем пользователям выходить из системы
         return http.build();
     }
     @Bean
