@@ -10,6 +10,7 @@ public class WorkingWithEnums {
     public static void main(String[] args) {
         Class cls = new Class();
         cls.whatIsInEnum();
+        cls.enumsValueOfSomeData();
     }
 
 }
@@ -89,6 +90,39 @@ class Class {
                 STR."enum to String:\n \{enumToString()}" +
                 STR."enum with constructor to String:\n \{enumWithConstructorToString()}"
         );
+    }
+
+    public void enumsValueOfSomeData() {
+        try {
+            System.out.println(STR."enum field value of Enum.field = \{Enum.valueOf(Enum.Field1.name())}\n");
+        } catch (IllegalArgumentException exception) {
+            System.out.println(exception.getMessage());
+        }
+        try {
+            System.out.println(STR."enum field value of String = \{Enum.valueOf("Field1")}\n");
+        } catch (IllegalArgumentException exception) {
+            System.out.println(exception.getMessage());
+        }
+        try {
+            System.out.println(STR."enum field value of some wrong String = \{Enum.valueOf("Shit")}\n");
+        } catch (IllegalArgumentException exception) {
+            System.out.println(exception.getMessage());
+        }
+        try {
+            System.out.println(STR."enum with constructor value of String equals to original value = \{Enum.valueOf("value1")}\n");
+        } catch (IllegalArgumentException exception) {
+            System.out.println(exception.getMessage());
+        }
+        try {
+            System.out.println(STR."enum with constructor value of String not equals to original value = \{Enum.valueOf("Value1")}\n");
+        } catch (IllegalArgumentException exception) {
+            System.out.println(exception.getMessage());
+        }
+        try {
+            System.out.println(STR."enum with constructor value of String totally not equals to original value = \{Enum.valueOf("Shit")}\n");
+        } catch (IllegalArgumentException exception) {
+            System.out.println(exception.getMessage());
+        }
     }
 
 }
